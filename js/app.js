@@ -23,7 +23,7 @@ let tableEl = document.createElement('table');
 
      }
 }
-
+let arr=[];
 function Location (locName,minCust,maxCust,avgCookieSale){
  this.locationName = locName ;
  this.minCustomer =  minCust;
@@ -32,8 +32,10 @@ function Location (locName,minCust,maxCust,avgCookieSale){
  this. customersPerHour=[];
  this.cockies=[];
  this.total=0;
+ arr.push(this);
  
 } 
+console.log();
 Location.prototype.updateCustomersPerHour = function() {
            for (let i= 0; i<hourWork.length;i++){
         this.customersPerHour.push(randomValue(this.minCustomer,this.maxCustomer));
@@ -90,25 +92,31 @@ lima.updateCustomersPerHour();
 lima.updateCockiesPH();
 lima.render();
 
-function totalTable (){
-let tr3 = document.createElement('tr');
-tableEl.appendChild(tr3);
-let td4=document.createElement('td');
-tr3.appendChild(td4);
-td4.textContent= 'Total';
-let td ;
-for (let i=0; i < hourWork.length;i++){
-    td = document.createElement('td');
-    tr3.appendChild(td);
-    let sum =0;
-    sum= sum +seattle.cockies[i]+Tokyo.cockies[i]+dubai.cockies[i]+paris.cockies[i]+lima.cockies[i];
-    td.textContent=`${sum}`;
-}
-let td2=document.createElement('td');
-tr3.appendChild(td2);
-let sum1 = 0;
-sum1 = sum1+seattle.total+Tokyo.total+dubai.total+paris.total+lima.total;
-td2.textContent=`${sum1}`;
 
-}
-totalTable();
+function totalTable (){
+    let tr3 = document.createElement('tr');
+    tableEl.appendChild(tr3);
+    let td4=document.createElement('td');
+    tr3.appendChild(td4);
+    td4.textContent= 'Total';
+    let td ;
+    let sum1=0;
+    for (let i=0; i < hourWork.length;i++){
+            td = document.createElement('td');
+            tr3.appendChild(td);
+            let sum =0;
+            for (let j=0; j <arr.length;j++){
+             sum =sum +arr[j].cockies[i];
+
+            }
+            td.textContent=`${sum}`;
+            sum1= sum1+sum;
+        }
+        let td2=document.createElement('td');
+        tr3.appendChild(td2);
+        td2.textContent=`${sum1}`;
+        
+        }
+        totalTable();
+        
+     
