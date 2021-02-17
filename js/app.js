@@ -35,11 +35,11 @@ function Location (locName,minCust,maxCust,avgCookieSale){
  arr.push(this);
  
 } 
-console.log();
+
 Location.prototype.updateCustomersPerHour = function() {
            for (let i= 0; i<hourWork.length;i++){
         this.customersPerHour.push(randomValue(this.minCustomer,this.maxCustomer));
-        console.log(this.customersPerHour[i]);
+        // console.log(this.customersPerHour[i]);
            }
         }
  Location.prototype. updateCockiesPH = function(){
@@ -74,7 +74,7 @@ seattle.updateCustomersPerHour();
 seattle.updateCockiesPH();
 headTable();
 seattle.render();
-console.log(seattle);
+// console.log(seattle);
 let Tokyo = new Location('Tokyo',3 ,24 , 1.2);
 Tokyo.updateCustomersPerHour();
 Tokyo.updateCockiesPH();
@@ -96,27 +96,57 @@ lima.render();
 function totalTable (){
     let tr3 = document.createElement('tr');
     tableEl.appendChild(tr3);
-    let td4=document.createElement('td');
+    let td4=document.createElement('th');
     tr3.appendChild(td4);
     td4.textContent= 'Total';
-    let td ;
+    let th ;
     let sum1=0;
     for (let i=0; i < hourWork.length;i++){
-            td = document.createElement('td');
-            tr3.appendChild(td);
+            th = document.createElement('th');
+            tr3.appendChild(th);
             let sum =0;
             for (let j=0; j <arr.length;j++){
              sum =sum +arr[j].cockies[i];
-
+              
             }
-            td.textContent=`${sum}`;
+            th.textContent=`${sum}`;
             sum1= sum1+sum;
         }
-        let td2=document.createElement('td');
-        tr3.appendChild(td2);
-        td2.textContent=`${sum1}`;
+        let th2=document.createElement('th');
+        tr3.appendChild(th2);
+        th2.textContent=`${sum1}`;
         
         }
         totalTable();
+
+      let form =document.getElementById('newLocation');
+        form.addEventListener('submit',locationCreate);
+
         
+    
+    function locationCreate(event) {
+        // to prevent default behavior from the webpages
+        event.preventDefault();
+        console.log(event);
+       let namel = event.target.nameloc.value;
+       console.log(namel);
+       console.log( event.target.nameloc.value);
+       const min=event.target.minCtr.value;
+       console.log(min);
+       const max =event.target.maxctr.value;
+       console.log(max);
+       const avge = event.target.avg.value;
+       console.log(avge);
+      
+       let createLoc=new Location(namel,min,max,avge);
+       tableEl.deleteRow(tableEl.rows.length-1);
+
+       createLoc.updateCustomersPerHour();
+       createLoc.updateCockiesPH();
+       createLoc.render();
+        totalTable();
+        
+    }
+
+       
      
