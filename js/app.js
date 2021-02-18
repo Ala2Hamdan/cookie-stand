@@ -132,10 +132,13 @@ function totalTable (){
        console.log(namel);
        console.log( event.target.nameloc.value);
        const min=event.target.minCtr.value;
+       parseInt(min);
        console.log(min);
        const max =event.target.maxctr.value;
+       parseInt(max);
        console.log(max);
        const avge = event.target.avg.value;
+       parseInt(avge);
        console.log(avge);
       
        let createLoc=new Location(namel,min,max,avge);

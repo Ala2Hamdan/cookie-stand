@@ -1,3 +1,12 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    margin: 10px;
+    
+}
+
+
 table , th ,td {
     border: 2px solid black;
     padding: 10px;
@@ -6,4 +15,158 @@ table , th ,td {
 
 html{
     background-color: burlywood;
+    opacity:unset;
 }
+header{
+    background-color: #493323;
+    color: burlywood;
+    position: relative;
+    height: 150px;
+}
+header img {
+    width: 200px;
+   height: 100px;
+   margin-top: 20px;
+   margin-left: 10px;
+  
+}
+header nav img{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 5px;
+    top:5px
+}
+ header ul li {
+display:inline-block;
+list-style:none;
+margin: 10px;
+
+}
+nav h1{
+    font-size: 70px;
+    position: absolute;
+    left: 220px;
+    top: 15px;
+}
+header ul li a{
+    color: burlywood;
+    text-decoration: none;
+    
+}
+a:hover{
+    background-color: chocolate;
+    color: burlywood;
+}
+nav ul {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    font-size: 30px;
+}
+.hr {
+    height: 5px;
+    background-color:#493323;
+    border: #493323;
+}
+main{
+    position: relative;
+}
+main img{
+    width: 70%;
+    height: 700px;
+}
+.p{
+  width: 27%;
+  background-color: #91684a;  
+  height: 700px;
+  position: absolute;
+  right: 0px;
+  top:2px;
+  padding: 10px;
+  font-size: 30px;
+
+}
+.p :last-child{
+    font-weight: bolder;
+}
+main div p{
+    padding:0px;
+
+}
+.s{
+  font-size: x-large;
+  background-color: #eaac7f;
+  
+}
+footer{
+    height: 100px;
+    background-color: #493323;
+ position: relative;
+bottom: 0px;
+}
+.f{
+    
+    width: 200px;
+    font-size: 16px;
+    font-weight: bold;
+    color:#ffdf91;
+    position:absolute;
+    top:5px;
+    left: 350px;
+}
+.fh{
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    color:#ffdf91;
+    position:absolute;
+    bottom: 10px;
+    left: 520px;
+}
+fieldset{
+    width: 800px;
+    height: 400px;
+    float: right;
+    font-size: 25px;
+    color:#493323 ;
+}
+input[type=submit]{
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #eaac7f;
+    color:#493323 ;
+}
+input[type=submit]:hover {
+    background-color: #493323;
+    color: #eaac7f;
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    /* border-radius: 4px; */
+    
+  }
+  input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+  }
+  .sales{
+      width: 100%;
+      height: 1000px;
+  }
+ .m{
+     padding: 20px;
+    font-size: x-large;
+    background-color: #eaac7f;
+    position: absolute;
+    bottom: 80px;
+ }
